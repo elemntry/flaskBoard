@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li><a href="{{ url_for('index') }}">Главная</a></li>
+            <li><a href="{{ url_for('create') }}">Добавить объявление</a></li>
+        </ul>
+    </nav>
+    <h1>Доска объявлений</h1>
+    <p class="lead">использует session</p>
+
+
+    <h1>Размещенные объявления</h1>
+    <ul>
+        {% for ad in ads %}
+            <li> {{ ad.title }} <a href="/remove/{{ loop.index }}">УДАЛИТЬ</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
